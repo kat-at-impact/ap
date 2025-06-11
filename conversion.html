@@ -143,32 +143,32 @@
 
         function trackConversion() {
           console.log("Convert referral!");
-          //const eventId = 55188;
 
           let fieldValues = {};
           let fields = Array.from(form.elements);
           fields.forEach((element) => (fieldValues[element.id] = element.value));
 
-          // console.log(fieldValues);
-          // ---
-          // console.log(Number(fieldValues.eventId));
-          // console.log(Number(fieldValues.campaignId));
-          // console.log(fieldValues.customerId);
-          // console.log(fieldValues.customerEmail);
-          // console.log(fieldValues.orderId);
-          // console.log(parseFloat(fieldValues.orderTotal));
-          // console.log(fieldValues.eventDate || "NOW");
+          let params = {
+            eventId: Number(fieldValues.eventId),
+            campaignId: Number(fieldValues.campaignId),
+            customerId: fieldValues.customerId,
+            customerEmail: fieldValues.customerEmail,
+            orderId: fieldValues.orderId,
+            orderSubtotalPostDiscount: Number(fieldValues.orderTotal),
+            eventDate: fieldValues.eventDate || "NOW",
+          };
+          console.log(params);
 
           ire(
             "trackConversion",
-            Number(fieldValues.eventId),
+            params.eventId,
             {
-              campaignId: Number(fieldValues.campaignId),
-              customerId: fieldValues.customerId,
-              customerEmail: fieldValues.customerEmail,
-              orderId: fieldValues.orderId,
-              orderSubtotalPostDiscount: Number(fieldValues.orderTotal),
-              eventDate: fieldValues.eventDate || "NOW",
+              campaignId: params.campaignId,
+              customerId: params.customerId,
+              customerEmail: params.customerEmail,
+              orderId: params.orderId,
+              orderSubtotalPostDiscount: params.orderTotal,
+              eventDate: params.eventDate,
             },
             {
               verifySiteDefinitionMatch: true,
