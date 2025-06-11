@@ -153,6 +153,11 @@ textarea {
   border-radius: 5px;
 }
 
+.code span {
+  //color: #131bff;
+  color: #2f3aff;
+}
+
 span.indent {
   display: inline-block;
   width: 1rem;

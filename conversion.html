@@ -99,9 +99,7 @@
       </div>
       <div class="column">
         <div class="code" id="trackConversion-snippet">
-          ire( <br />
-          <span class="indent"></span>"trackConversion", <br />
-          <span class="indent"></span><span class="eventId">223344</span>,<br />
+          ire('trackConversion', </span><span class="eventId">223344</span>,<br />
           <span class="indent"></span>{ <br />
           <span class="indent-2"></span>campaignId: <span class="campaignId">12345</span>,<br />
           <span class="indent-2"></span>customerId: "<span class="customerId">test@test.com</span>", <br />
@@ -160,7 +158,7 @@
           console.log(params);
 
           ire(
-            "trackConversion",
+            'trackConversion',
             params.eventId,
             {
               campaignId: params.campaignId,
