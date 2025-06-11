@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -34,14 +38,34 @@ h1 {
 }
 
 .layout {
-  max-width: 1280px;
+  max-width: 920px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .layout.wide {
-  max-width: 1480px;
+  max-width: 1280px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+.space-around {
+  justify-content: space-around;
+}
+.justify-center {
+  justify-content: center;
+}
+
+.gap-lg {
+  gap: 3rem;
 }
 
 .logo {
@@ -66,6 +90,7 @@ h1 {
 }
 
 button {
+  margin-top: 0.75rem;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -82,6 +107,59 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.form {
+  text-align: left;
+  width: 360px;
+  margin: 0 auto;
+}
+
+.form-row {
+  margin: 0.75rem 0;
+}
+
+.form-field {
+  min-width: calc(50% - 10px);
+}
+
+label {
+  display: block;
+  margin: 0.15rem 0;
+  font-weight: bold;
+  font-size: 0.95rem;
+  font-family: "Source Code Pro", monospace;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #b7b7b7;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: "Source Code Pro", monospace;
+}
+
+.code {
+  max-width: 580px;
+  min-width: 450px;
+  text-align: left;
+  font-size: 0.85rem;
+  font-family: "Source Code Pro", monospace;
+  background: #f6f6f6;
+  padding: 2rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+span.indent {
+  display: inline-block;
+  width: 1rem;
+}
+span.indent-2 {
+  display: inline-block;
+  width: 2rem;
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/saasquatch-icon-p.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+    <title>/advocate playground</title>
+
+    <script type="text/javascript">
+      (function (a, b, c, d, e, f, g) {
+        e["ire_o"] = c;
+        e[c] =
+          e[c] ||
+          function () {
+            (e[c].a = e[c].a || []).push(arguments);
+          };
+        f = d.createElement(b);
+        g = d.getElementsByTagName(b)[0];
+        f.async = 1;
+        f.src = a;
+        g.parentNode.insertBefore(f, g);
+      })("https://utt.impactcdn.com/A6129831-e319-4315-aa32-24037c5e79a065535.js", "script", "ire", document, window);
+      ire("identify", {
+        customerid: "" /*INSERT CUSTOMER ID*/,
+        customeremail: "" /*INSERT SHA1 HASHED CUSTOMER EMAIL*/,
+      });
+    </script>
+  </head>
+  <body>
+    <div class="layout">
+      <div>
+        <a href="#" target="_blank">
+          <img src="assets/impact-icon.svg" class="logo impact" alt="Impact logo" />
+        </a>
+
+        <h1>Track Conversion</h1>
+      </div>
+      <div class="form" style="display: none; width: 100%">
+        <div class="form-row">
+          <label for="utt">UTT</label>
+          <textarea
+            rows="5"
+            name="utt"
+            id="utt"
+            placeholder="{e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://utt.impactcdn.com/A6129831-e319-4315-aa32-24037c5e79a065535.js','script','ire',document,window); ire('identify', {customerid: '' /*INSERT CUSTOMER ID*/, customeremail: '' /*INSERT SHA1 HASHED CUSTOMER EMAIL*/}); "
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="layout d-flex gap-lg justify-center">
+      <div class="column">
+        <form class="form" id="trackConversion-form">
+          <div class="form-row d-flex">
+            <div class="form-field">
+              <label for="campaignId">campaignId</label>
+              <input type="text" name="campaignId" id="campaignId" value="12345" required />
+            </div>
+            <div class="form-field">
+              <label for="eventId">eventId</label>
+              <input type="text" name="eventId" id="eventId" value="223344" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="customerId">customerId</label>
+            <input type="text" name="customerId" id="customerId" value="test@test.com" />
+          </div>
+          <div class="form-row">
+            <label for="customerEmail">customerEmail</label>
+            <input type="text" name="customerEmail" id="customerEmail" value="test@test.com" />
+          </div>
+
+          <div class="form-row d-flex">
+            <div class="form-field">
+              <label for="orderId">orderId</label>
+              <input type="text" name="orderId" id="orderId" value="23456789" required />
+            </div>
+            <div class="form-field">
+              <label for="orderTotal">orderTotal</label>
+              <input type="text" name="orderTotal" id="orderTotal" value="123.00" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="eventDate">eventDate</label>
+            <input type="text" name="eventDate" id="eventDate" value="NOW" />
+          </div>
+        </form>
+        <button id="event-button">Track conversion 💫</button>
+      </div>
+      <div class="column">
+        <div class="code" id="trackConversion-snippet">
+          ire( <br />
+          <span class="indent"></span>"trackConversion", <br />
+          <span class="indent"></span><span class="eventId">223344</span>,<br />
+          <span class="indent"></span>{ <br />
+          <span class="indent-2"></span>campaignId: <span class="campaignId">12345</span>,<br />
+          <span class="indent-2"></span>customerId: "<span class="customerId">test@test.com</span>", <br />
+          <span class="indent-2"></span>customerEmail: "<span class="customerEmail">test@test.com</span>", <br />
+          <span class="indent-2"></span>orderId: "<span class="orderId">23456789</span>", <br />
+          <span class="indent-2"></span>orderSubtotalPostDiscount: <span class="orderTotal">123.00</span>, <br />
+          <span class="indent-2"></span>eventDate: "<span class="eventDate">NOW</span>", <br />
+          <span class="indent"></span>}, <br />
+          <span class="indent"></span>{ <br />
+          <span class="indent-2"></span>verifySiteDefinitionMatch: <br />
+          <span class="indent-2"></span>true, <br />
+          <span class="indent"></span>},<br />
+          ); <br />
+        </div>
+        <br /><br />
+        <details>
+          Response<br />
+          <div class="response"></div>
+        </details>
+      </div>
+    </div>
+
+    <script>
+      window.impactOnReady = function () {
+        const form = document.querySelector("#trackConversion-form");
+        const codeSnippet = document.querySelector("#trackConversion-snippet");
+        const button = document.querySelector("#event-button");
+        button.addEventListener("click", trackConversion);
+
+        form.addEventListener("input", function (event) {
+          let field = event.target;
+          let fieldId = event.target.id;
+          let fieldValue = event.target.value;
+
+          // Update code snippet
+          let elem = codeSnippet.getElementsByClassName(fieldId)[0];
+          elem.textContent = fieldValue;
+        });
+
+        function trackConversion() {
+          console.log("Convert referral!");
+          //const eventId = 55188;
+
+          let fieldValues = {};
+          let fields = Array.from(form.elements);
+          fields.forEach((element) => (fieldValues[element.id] = element.value));
+
+          // console.log(fieldValues);
+          // ---
+          // console.log(Number(fieldValues.eventId));
+          // console.log(Number(fieldValues.campaignId));
+          // console.log(fieldValues.customerId);
+          // console.log(fieldValues.customerEmail);
+          // console.log(fieldValues.orderId);
+          // console.log(parseFloat(fieldValues.orderTotal));
+          // console.log(fieldValues.eventDate || "NOW");
+
+          ire(
+            "trackConversion",
+            Number(fieldValues.eventId),
+            {
+              campaignId: Number(fieldValues.campaignId),
+              customerId: fieldValues.customerId,
+              customerEmail: fieldValues.customerEmail,
+              orderId: fieldValues.orderId,
+              orderSubtotalPostDiscount: Number(fieldValues.orderTotal),
+              eventDate: fieldValues.eventDate || "NOW",
+            },
+            {
+              verifySiteDefinitionMatch: true,
+            },
+          );
+        }
+      };
+    </script>
+  </body>
+</html>
