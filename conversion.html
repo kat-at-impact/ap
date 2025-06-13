@@ -152,7 +152,7 @@
             customerId: fieldValues.customerId,
             customerEmail: fieldValues.customerEmail,
             orderId: fieldValues.orderId,
-            orderSubtotalPostDiscount: Number(fieldValues.orderTotal),
+            orderTotal: Number(fieldValues.orderTotal),
             eventDate: fieldValues.eventDate || "NOW",
           };
           console.log(params);
@@ -161,7 +161,7 @@
             'trackConversion',
             params.eventId,
             {
-              campaignId: params.campaignId,
+              //campaignId: params.campaignId,
               customerId: params.customerId,
               customerEmail: params.customerEmail,
               orderId: params.orderId,
