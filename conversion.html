@@ -61,12 +61,12 @@
         <form class="form" id="trackConversion-form">
           <div class="form-row d-flex">
             <div class="form-field">
-              <label for="campaignId">campaignId</label>
-              <input type="text" name="campaignId" id="campaignId" value="12345" required />
-            </div>
-            <div class="form-field">
               <label for="eventId">eventId</label>
               <input type="text" name="eventId" id="eventId" value="223344" required />
+            </div>
+            <div class="form-field">
+              <label for="eventDate">eventDate</label>
+              <input type="text" name="eventDate" id="eventDate" value="NOW" />
             </div>
           </div>
 
@@ -89,11 +89,6 @@
               <input type="text" name="orderTotal" id="orderTotal" value="123.00" />
             </div>
           </div>
-
-          <div class="form-row">
-            <label for="eventDate">eventDate</label>
-            <input type="text" name="eventDate" id="eventDate" value="NOW" />
-          </div>
         </form>
         <button id="event-button">Track conversion 💫</button>
       </div>
@@ -101,7 +96,6 @@
         <div class="code" id="trackConversion-snippet">
           ire('trackConversion', </span><span class="eventId">223344</span>,<br />
           <span class="indent"></span>{ <br />
-          <span class="indent-2"></span>campaignId: <span class="campaignId">12345</span>,<br />
           <span class="indent-2"></span>customerId: "<span class="customerId">test@test.com</span>", <br />
           <span class="indent-2"></span>customerEmail: "<span class="customerEmail">test@test.com</span>", <br />
           <span class="indent-2"></span>orderId: "<span class="orderId">23456789</span>", <br />
