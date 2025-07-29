@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,8 +17,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #646cff;
+    color: #fff;
+  }
+  button:hover {
+    background-color: #e8dbff;
+    color: #646cff;
+  }
 }
 
 a {
@@ -115,6 +133,10 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.form-wide {
+  width: 100%;
+}
+
 .form-row {
   margin: 0.75rem 0;
 }
@@ -167,20 +189,38 @@ span.indent-2 {
   width: 2rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #646cff;
-    color: #fff;
-  }
-  button:hover {
-    background-color: #e8dbff;
-    color: #646cff;
-  }
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 1.5rem;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }

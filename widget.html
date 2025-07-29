@@ -11,21 +11,39 @@
     <div class="layout">
       <div>
         <a href="#" target="_blank">
-          <img
-            src="assets/impact-icon.svg"
-            class="logo impact"
-            alt="Impact logo"
-          />
+          <img src="assets/impact-icon.svg" class="logo impact" alt="Impact logo" />
         </a>
 
         <h1>Widget Tester</h1>
         <nav>
-          <a href="widget.html">Widget Tester</a> •
-          <a href="upsert.html">Upsert User</a> •
+          <a href="widget.html">Widget Tester</a> • <a href="upsert.html">Upsert User</a> •
           <a href="convert.html">Track Conversion</a>
         </nav>
       </div>
     </div>
-    <div class="layout">Welcome!</div>
+    <div class="layout">
+      <button class="accordion">
+        <i id="accordionArrow" class="arrow" style="margin-right: 10px; transform: rotate(-45deg)"></i>Widget
+        Configuration
+      </button>
+      <div class="panel">
+        <form id="widgetForm" class="form form-wide" action="" method="get">
+          Tenant alias: <input type="text" id="tenantAlias" name="tenantAlias" /><br /><br />
+          JWT: <textarea rows="8" style="width: 100%" id="jwt" name="jwt"></textarea><br /><br />
+          Engagement Medium: <input type="text" id="engagementMedium" name="engagementMedium" /><br /><br />
+          Program ID (GA-only): <input type="text" id="programId" name="programId" /><br /><br />
+          Widget ID: <input type="text" id="widgetId" name="widgetId" /><br /><br />
+          <br /><br />
+
+          User Object: <textarea rows="8" style="width: 100%" id="userObject" name="userObject"></textarea><br /><br />
+
+          <!-- Include meta tag for mobile scaling? -->
+          <!-- <input type="checkbox" id="deviceWidthMeta" name="deviceWidthMeta" value="deviceWidthMeta" /> <br /><br /> -->
+
+          <input type="button" onclick="submitForm()" value="Submit form" />
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" type="text/javascript" src="src/main.js"></script>
   </body>
 </html>
