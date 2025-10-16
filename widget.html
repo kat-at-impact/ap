@@ -9,41 +9,43 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="layout">
+    <header class="layout">
       <div>
         <a href="#" target="_blank">
           <img src="assets/impact-icon.svg" class="logo impact" alt="Impact logo" />
         </a>
 
         <h1>Widget Tester</h1>
-        <nav>
-          <a href="widget.html">Widget Tester</a> • <a href="upsert.html">Upsert User</a> •
-          <a href="convert.html">Track Conversion</a>
-        </nav>
       </div>
-    </div>
-    <div class="layout">
-      <button class="accordion">
-        <i id="accordionArrow" class="arrow" style="margin-right: 10px; transform: rotate(-45deg)"></i>Widget
-        Configuration
-      </button>
-      <div class="panel">
-        <form id="widgetForm" class="form form-wide" action="" method="get">
-          Tenant alias: <input type="text" id="tenantAlias" name="tenantAlias" /><br /><br />
-          JWT: <textarea rows="8" style="width: 100%" id="jwt" name="jwt"></textarea><br /><br />
-          Engagement Medium: <input type="text" id="engagementMedium" name="engagementMedium" /><br /><br />
-          Program ID (GA-only): <input type="text" id="programId" name="programId" /><br /><br />
-          Widget ID: <input type="text" id="widgetId" name="widgetId" /><br /><br />
-          <br /><br />
+    </header>
 
-          User Object: <textarea rows="8" style="width: 100%" id="userObject" name="userObject"></textarea><br /><br />
-
-          <!-- Include meta tag for mobile scaling? -->
-          <!-- <input type="checkbox" id="deviceWidthMeta" name="deviceWidthMeta" value="deviceWidthMeta" /> <br /><br /> -->
-
-          <input type="button" onclick="submitForm()" value="Submit form" />
-        </form>
+    <div class="layout wide">
+      <div class="widget-config">
+        <button class="accordion">
+          <i id="accordionArrow" class="arrow" style="margin-right: 10px; transform: rotate(-45deg)"></i>Widget
+          Configuration
+        </button>
+        <div class="panel">
+          <form id="widgetForm" class="form form-wide" action="" method="get">
+            UTT:
+            <input
+              type="text"
+              id="utt"
+              name="utt"
+              value=""
+              placeholder="BA5523570-3543-44c6-8139-123abccde4321"
+            /><br /><br />
+            JWT:
+            <textarea rows="6" style="width: 100%" id="jwt" name="jwt"></textarea><br /><br />
+            Program ID: <input type="text" id="programID" name="programID" value="" /><br /><br />
+            Widget ID:
+            <input type="text" id="widgetID" name="widgetID" placholder="referrerWidget" value="" /><br /><br />
+            <input type="submit" id="submit-button" value="Submit" />
+          </form>
+        </div>
       </div>
+
+      <div id="widget"></div>
     </div>
     <script type="text/javascript" type="text/javascript" src="src/main.js"></script>
   </body>

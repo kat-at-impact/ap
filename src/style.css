@@ -206,6 +206,12 @@ span.indent-2 {
   background-color: #ccc;
 }
 
+.panel,
+.accordion {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
 .panel {
   padding: 1.5rem;
   display: none;
@@ -223,4 +229,10 @@ i {
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+}
+
+#widget {
+  border: 1px solid #eee;
+  margin: 2rem auto;
+  min-height: 500px;
 }
