@@ -47,6 +47,61 @@
 
       <div id="widget"></div>
     </div>
-    <script type="text/javascript" type="text/javascript" src="src/main.js"></script>
+
+    <script type="text/javascript" src="src/main.js"></script>
+    <script type="text/javascript">
+      // load widget
+      loadWidget();
+
+      function loadWidget() {
+        console.log("Load widget!");
+
+        // load query vars
+        let field = "";
+        let params = {
+          utt: getQueryString("utt"),
+          jwt: getQueryString("jwt"),
+          programID: getQueryString("programID"),
+          widgetID: getQueryString("widgetID"),
+        };
+
+        // load field values
+        field = document.querySelector("#utt");
+        field.value = params.utt;
+
+        field = document.querySelector("#jwt");
+        field.value = params.jwt;
+
+        field = document.querySelector("#programID");
+        field.value = params.programID;
+
+        field = document.querySelector("#widgetID");
+        field.value = params.widgetID;
+
+        let utt = `https://utt.impactcdn.com/${params.utt}.js`;
+        window.impactToken = params.jwt;
+
+        if (params.utt) {
+          const widgetContainer = document.querySelector("#widget");
+          let widgetSnippet = `<impact-embed widget="p/${params.programID}/w/${params.widgetID}"><div>Loading...</div></impact-embed>`;
+          widgetContainer.innerHTML = widgetSnippet;
+          console.log(widgetSnippet);
+        }
+
+        (function (a, b, c, d, e, f, g) {
+          e["ire_o"] = c;
+          e[c] =
+            e[c] ||
+            function () {
+              (e[c].a = e[c].a || []).push(arguments);
+            };
+          f = d.createElement(b);
+          g = d.getElementsByTagName(b)[0];
+          f.async = 1;
+          f.src = a;
+          g.parentNode.insertBefore(f, g);
+        })(utt, "script", "ire", document, window);
+      }
+    </script>
   </body>
 </html>
