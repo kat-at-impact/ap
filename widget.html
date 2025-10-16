@@ -81,13 +81,6 @@
         let utt = `https://utt.impactcdn.com/${params.utt}.js`;
         window.impactToken = params.jwt;
 
-        if (params.utt) {
-          const widgetContainer = document.querySelector("#widget");
-          let widgetSnippet = `<impact-embed widget="p/${params.programID}/w/${params.widgetID}"><div>Loading...</div></impact-embed>`;
-          widgetContainer.innerHTML = widgetSnippet;
-          console.log(widgetSnippet);
-        }
-
         (function (a, b, c, d, e, f, g) {
           e["ire_o"] = c;
           e[c] =
@@ -101,6 +94,13 @@
           f.src = a;
           g.parentNode.insertBefore(f, g);
         })(utt, "script", "ire", document, window);
+
+        if (params.utt) {
+          const widgetContainer = document.querySelector("#widget");
+          let widgetSnippet = `<impact-embed widget="p/${params.programID}/w/${params.widgetID}"><div>Loading...</div></impact-embed>`;
+          widgetContainer.innerHTML = widgetSnippet;
+          console.log(widgetSnippet);
+        }
       }
     </script>
   </body>

@@ -1,5 +1,4 @@
 initAccordion();
-initWidget();
 
 function getQueryString(field, url) {
   var href = url ? url : window.location.href;
