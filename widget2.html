@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>widget tester</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/saasquatch-icon-p.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <header class="layout">
+      <div>
+        <a href="#" target="_blank">
+          <img src="assets/impact-icon.svg" class="logo impact" alt="Impact logo" />
+        </a>
+        <h1 style="margin: 0.35em 0">Widget Tester</h1>
+      </div>
+    </header>
+
+    <div class="layout wide" style="padding-top: 0">
+      <div class="widget-config">
+        <button class="accordion">
+          <i id="accordionArrow" class="arrow" style="margin-right: 10px; transform: rotate(-45deg)"></i>Widget
+          Configuration
+        </button>
+        <div class="panel">
+          <form id="widgetForm" class="form form-wide" action="" method="get">
+            Tenant alias:
+            <input type="text" id="tenant" name="tenant" value="" placeholder="test_aym93okveuya4" /><br /><br />
+            <!--Program ID: <input type="text" id="programID" name="programID" value="" /><br /><br />-->
+            Widget ID:
+            <input type="text" id="widgetID" name="widgetID" placholder="referrerWidget" value="" /><br /><br />
+            JWT:
+            <textarea rows="6" style="width: 100%" id="jwt" name="jwt"></textarea><br /><br />
+            <input type="submit" id="submit-button" value="Submit" />
+          </form>
+        </div>
+      </div>
+
+      <div id="widget"></div>
+    </div>
+
+    <script type="text/javascript" src="src/main.js"></script>
+    <script type="text/javascript">
+      // load widget
+      loadWidget();
+
+      function loadWidget() {
+        console.log("Load widget!");
+
+        // load query vars
+        let field = "";
+        let params = {
+          utt: getQueryString("utt"),
+          tenant: getQueryString("tenant"),
+          jwt: getQueryString("jwt"),
+          programID: getQueryString("programID"),
+          widgetID: decodeURIComponent(getQueryString("widgetID")),
+        };
+
+        let widgetID = decodeURIComponent(params.widgetID);
+
+        // load field values
+        // field = document.querySelector("#utt");
+        // field.value = params.utt;
+
+        field = document.querySelector("#tenant");
+        field.value = params.tenant;
+
+        field = document.querySelector("#jwt");
+        field.value = params.jwt;
+
+        field = document.querySelector("#widgetID");
+        field.value = widgetID;
+
+        // let utt = `https://utt.impactcdn.com/${params.utt}.js`;
+        let squatchURL = "https://fast.ssqt.io/squatch-js@2";
+        window.squatchTenant = params.tenant;
+        window.squatchToken = params.jwt;
+
+        !(function (a, b) {
+          a("squatch", squatchURL, b);
+        })(function (a, b, c) {
+          var d, e, f;
+          (c["_" + a] = {}),
+            (c[a] = {}),
+            (c[a].ready = function (b) {
+              c["_" + a].ready = c["_" + a].ready || [];
+              c["_" + a].ready.push(b);
+            }),
+            (e = document.createElement("script")),
+            (e.async = 1),
+            (e.src = b),
+            (f = document.getElementsByTagName("script")[0]),
+            f.parentNode.insertBefore(e, f);
+        }, this);
+
+        console.log(widgetID);
+        console.log(params.tenant);
+
+        if (widgetID && params.tenant) {
+          const widgetContainer = document.querySelector("#widget");
+          let widgetSnippet = `<squatch-embed widget="${widgetID}"><div>Loading...</div></squatch-embed>`;
+          widgetContainer.innerHTML = widgetSnippet;
+          console.log(widgetSnippet);
+        }
+      }
+    </script>
+  </body>
+</html>
