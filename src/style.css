@@ -50,6 +50,11 @@ body {
   min-height: 100vh;
 }
 
+hr {
+  border: 1px solid #ccc;
+  margin: 2em 0;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -235,4 +240,20 @@ i {
   border: 1px solid #eee;
   margin: 2rem auto;
   min-height: 500px;
+}
+
+#leaderboard {
+  display: flex;
+  justify-content: center;
+}
+
+#leaderboard table {
+  width: 420px;
+}
+#leaderboard th,
+#leaderboard td {
+  padding: 8px;
+}
+#leaderboard th {
+  border-bottom: 2px solid #eee;
 }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/saasquatch-icon-p.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>parse payload</title>
+  </head>
+  <body>
+    <div class="layout">
+      <form id="widgetForm" class="form form-wide" action="" method="get">
+        Payload
+        <input type="text" id="payload" name="payload" value="" placeholder="" /><br /><br />
+        <input type="submit" id="submit-button" value="Submit" style="width: 100px" />
+      </form>
+
+      <hr />
+
+      <div id="result" style="text-align: left"></div>
+    </div>
+  </body>
+
+  <script type="text/javascript" src="src/main.js"></script>
+  <script type="text/javascript">
+    let payload = decodeURIComponent(getQueryString("payload"));
+    let query = window.location.search.substring(1);
+
+    if (payload != "null") {
+      const field = document.querySelector("#payload");
+      field.value = payload;
+
+      const resultEl = document.querySelector("#result");
+      let vars = payload.split("&");
+      let result = "<code>";
+      vars.forEach((item) => {
+        result += decodeURIComponent(item) + "<br>";
+      });
+      result += "</code>";
+      resultEl.innerHTML = result;
+      console.log(vars);
+    }
+  </script>
+</html>
