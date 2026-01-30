@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/saasquatch-icon-p.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>sample page</title>
+
+    <script type="text/javascript">
+      (function (a, b, c, d, e, f, g) {
+        e["ire_o"] = c;
+        e[c] =
+          e[c] ||
+          function () {
+            (e[c].a = e[c].a || []).push(arguments);
+          };
+        f = d.createElement(b);
+        g = d.getElementsByTagName(b)[0];
+        f.async = 1;
+        f.src = a;
+        g.parentNode.insertBefore(f, g);
+      })("https://utt.impactcdn.com/A6129831-e319-4315-aa32-24037c5e79a065535.js", "script", "ire", document, window);
+      ire("identify", {
+        customerid: "" /*INSERT CUSTOMER ID*/,
+        customeremail: "" /*INSERT SHA1 HASHED CUSTOMER EMAIL*/,
+      });
+    </script>
+  </head>
+  <body>
+    <div class="layout">
+      <div>
+        <a href="#" target="_blank">
+          <img src="assets/impact-icon.svg" class="logo impact" alt="Impact logo" />
+        </a>
+
+        <h1>Sample page</h1>
+      </div>
+      <img src="https://picsum.photos/500/350" alt="" />
+    </div>
+    <div class="layout"></div>
+  </body>
+</html>
